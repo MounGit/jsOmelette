@@ -50,6 +50,8 @@
 // >>1. Mon personnage prend un des paniers dans l'épicerie (il récupère le panier dans les objets de l'épicerie et le met dans sa main droite.
 // >>1. Il doit y avoir un objet dans la main droite de personnage et un panier en moins. Vérifier avec des console.log() ensuite afficher un message du type : 
 // >>1. console.log(`${personnage.nom} a pris un ${personnage.mainDroite.type}`);
+
+let fait;
 // >>1. Je créer une boucle qui va prendre chaque élément (ingrédient) du contenu de l'épicerie (1 à 1) et en faire une COPIE dans le panier du personnage
 // >>1. Afficher un message à chaque ingrédient pris
 // >>1. Payer chaque ingrédient récupéré dans le panier. Avec une boucle aussi, on va les passer 1 à 1 dans la fonction payerArticle()
@@ -67,3 +69,30 @@
 // >>1. Afficher un message avec le nouveau mélange
 // >>1. vider le contenu du bol dans la poele. Il ne doit plus rien avoir dans le bol et y avoir juste l'omelette pas cuite.
 // >>1. Afficher un message final, notre omelette est cuite :)
+
+
+import {personne, maison, poele, bol, panier1, panier2, panier3, panier4, panier5} from "./objets.js";
+import {Lieu, Epicerie, Igredients} from "./classes.js";
+
+
+
+let oignon = new Igredients("oignon", "entier", 1);
+let oeuf = new Igredients ("oeuf", "entier", 3);
+let epices = new Igredients ("épices", "moulues", 4);
+let fromage = new Igredients ("fromage", "entier", 2);
+
+let tabIngredients = [];
+tabIngredients.push(oignon, oeuf, epices, fromage);
+console.log(tabIngredients)
+
+
+let tabPaniers = [];
+tabPaniers.push(panier1, panier2, panier3, panier4, panier5);
+console.log(tabPaniers);
+let magasin = new Epicerie ("l'épicerie", [], tabPaniers, tabIngredients);
+
+
+personne.seDeplacer(maison);
+personne.seDeplacer(magasin);
+magasin.methodePaniers();
+magasin.methodeCourses();
