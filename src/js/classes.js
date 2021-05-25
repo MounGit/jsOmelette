@@ -8,10 +8,11 @@ class Lieu {
 };
 
 class Epicerie extends Lieu {
-    constructor(nom, personnes, paniers, ingredients) {
+    constructor(nom, personnes, paniers, ingredients, caisse) {
         super(nom, personnes);
         this.paniers = paniers;
         this.ingredients = ingredients;
+        this.caisse = caisse;
         this.methodePaniers = () => {
             let panierRandom = this.paniers[Math.floor(Math.random()*this.paniers.length)];
             // console.log(panierRandom);

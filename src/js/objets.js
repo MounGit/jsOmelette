@@ -1,3 +1,5 @@
+import { Epicerie, Lieu } from "./classes.js";
+
 let personne ={
     nom : "Mouna",
     lieu : [this],
@@ -11,8 +13,16 @@ let personne ={
         // console.log(this.lieu);
         // console.log(lieu.personnes);
     },
-    payerArticle(article){
-
+    payerArticle(article, lieu){
+        this.argent -= article.prix;
+        console.log(this.argent);
+        lieu.caisse += article.prix;
+        console.log(lieu.caisse);
+        console.log(`${personne.nom} a payé ${article.nom}`);
+        this.mainDroite.push(article);
+        this.mainDroite[0].contenu.splice(this.mainDroite[0].contenu.indexOf(article, 1));
+        // console.log(this.mainDroite);
+        // console.log(this.mainDroite[0].contenu);
     },
     couper(ingredient, outils){
 
