@@ -82,12 +82,12 @@ let fromage = new Igredients ("le fromage", "entier", 2);
 
 let tabIngredients = [];
 tabIngredients.push(oignon, oeuf, epices, fromage);
-// console.log(tabIngredients)
+
 
 
 let tabPaniers = [];
 tabPaniers.push(panier1, panier2, panier3, panier4, panier5);
-// console.log(tabPaniers);
+
 let magasin = new Epicerie ("l'épicerie", [], tabPaniers, tabIngredients, 0);
 
 
@@ -117,8 +117,6 @@ personne.couper(oeuf);
 personne.couper(epices);
 personne.couper(fromage);
 
-
-// bol.melanger(bol.contenu);
 
 bol.melanger("omelette", "pas cuite"); 
 poele.cuire(bol);
