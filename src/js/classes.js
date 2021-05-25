@@ -25,7 +25,7 @@ class Epicerie extends Lieu {
         this.methodeCourses = () => {
             this.ingredients.forEach(element => {
                 personne.mainDroite[0].contenu.push(element);
-                console.log(personne.mainDroite[0].contenu)
+                // console.log(personne.mainDroite[0].contenu)
                 console.log(`${personne.nom} a mis ${element.nom} dans son panier`)
             });
             // for (let i = 1; i < personne.mainDroite.length; i++){

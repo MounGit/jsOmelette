@@ -54,10 +54,8 @@
 // >>1. Afficher un message à chaque ingrédient pris
 // >>1. Payer chaque ingrédient récupéré dans le panier. Avec une boucle aussi, on va les passer 1 à 1 dans la fonction payerArticle()
 // >>1. Afficher un message de ce qu'il reste d'argent sur le personnage.
-
-let fait;
-
 // >>1. rentrer à la maison (comme ça on pourra cuisiner)
+
 // >>1. mettre chaque ingrédient dans le bol (1 à 1 donc avec une boucle)
 // >>1. Vérifier que les ingrédients ne se trouvent plus dans le panier (oups ! on a oublié de le rapporter x)
 // >>1. Afficher un petit message de chaque ingrédient qu'on met dans le bol.
@@ -77,23 +75,24 @@ import {Lieu, Epicerie, Igredients} from "./classes.js";
 
 
 
-let oignon = new Igredients("oignon", "entier", 1);
-let oeuf = new Igredients ("oeuf", "entier", 3);
-let epices = new Igredients ("épices", "moulues", 4);
-let fromage = new Igredients ("fromage", "entier", 2);
+let oignon = new Igredients("l'oignon", "entier", 1);
+let oeuf = new Igredients ("l'oeuf", "entier", 3);
+let epices = new Igredients ("le mélange d'épices", "moulues", 4);
+let fromage = new Igredients ("le fromage", "entier", 2);
 
 let tabIngredients = [];
 tabIngredients.push(oignon, oeuf, epices, fromage);
-console.log(tabIngredients)
+// console.log(tabIngredients)
 
 
 let tabPaniers = [];
 tabPaniers.push(panier1, panier2, panier3, panier4, panier5);
-console.log(tabPaniers);
+// console.log(tabPaniers);
 let magasin = new Epicerie ("l'épicerie", [], tabPaniers, tabIngredients, 0);
 
 
 personne.seDeplacer(maison);
+console.log(`${personne.nom} a ${personne.argent}€`);
 personne.seDeplacer(magasin);
 
 magasin.methodePaniers();
@@ -104,9 +103,20 @@ personne.payerArticle(oeuf, magasin);
 personne.payerArticle(epices, magasin);
 personne.payerArticle(fromage, magasin);
 
+personne.rendrePanier(magasin);
 console.log(`${personne.nom} a ${personne.argent}€ après ses courses.`);
 
 personne.seDeplacer(maison);
+personne.remplirBol(oignon, bol);
+personne.remplirBol(oeuf, bol);
+personne.remplirBol(epices, bol);
+personne.remplirBol(fromage, bol);
+
+personne.couper(oignon);
+personne.couper(oeuf);
+personne.couper(epices);
+personne.couper(fromage);
 
 
-
+bol.melanger(bol.contenu);
+poele.cuire(bol);
