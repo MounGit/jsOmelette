@@ -118,5 +118,7 @@ personne.couper(epices);
 personne.couper(fromage);
 
 
-bol.melanger(bol.contenu);
+// bol.melanger(bol.contenu);
+
+bol.melanger("omelette", "pas cuite"); 
 poele.cuire(bol);

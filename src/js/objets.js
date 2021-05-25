@@ -54,29 +54,40 @@ let maison = {
 };
 
 let poele = {
+    nom: "poêle",
     contenu: [],
-    etat:"pas cuite", 
-    cuire(melange) {
-        console.log(`l'${melange.etat} est dans la poële mais n'est ${this.etat}`)
+    cuire(melange){
+        console.log(`l'${this.contenu[0].nom} est dans la ${this.nom} mais n'est ${this.contenu[0].etat}`)
         this.contenu.push(melange.contenu[0], melange.contenu[1], melange.contenu[2], melange.contenu[3]);
         melange.contenu.splice(0, melange.contenu.length);
         // console.log(melange)
         // console.log(this.contenu)
-        this.etat = "cuite"
-        console.log(`l'${melange.etat} est ${this.etat}`)
+        
+        setTimeout(() => {
+            this.contenu[0].etat = "cuite"
+            console.log(`l'${this.contenu[0].nom} est ${this.contenu[0].etat} en 4 secondes parce que ma maison c'est un volcan`)
+        }, 4000);
+
     },
 };
 
 let bol = {
     nom: "bol",
     contenu: [],
-    etat : "",
-    melanger(nomMelange){
-        this.contenu = nomMelange.reverse();
-        this.etat = "omelette";
-        console.log(`les ingrédients du ${this.nom} sont mélangés, c'est maintenant une ${this.etat}`);
+    melanger(nomMelange, etat) {
+        let newMelange = {
+            nom: nomMelange,
+            etat: etat
+        };
+        poele.contenu.push(newMelange);
+        console.log(`les ingrédients du ${this.nom} sont mélangés, c'est maintenant une ${nomMelange} qui n'est ${etat}`)
     }
-    
+    // etat: "",
+    // melanger(nomMelange) {
+    //     this.contenu = nomMelange.reverse();
+    //     this.etat = "omelette";
+    //     console.log(`les ingrédients du ${this.nom} sont mélangés, c'est maintenant une ${this.etat}`);
+
     // melanger(newMelange){
     //     let i;
     //     let j;
@@ -90,7 +101,7 @@ let bol = {
     //             console.log(newMelange);
     //         }
     //         return newMelange
-            
+
     //         // this.contenu.reverse()
     //         etat: "omelette";
     //     }
